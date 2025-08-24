@@ -4,12 +4,6 @@
 A tiny, local, browser-only tool that parses Kroger order HTML into a table you can export/import as CSV. No data leaves your machine.
 
 
-## Files
-- `index.html` – the page shell
-- `styles.css` – styles
-- `app.js` – parsing logic + UI wiring
-
-
 Open `index.html` in your browser.
 
 
