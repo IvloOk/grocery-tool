@@ -4,7 +4,19 @@ Versioning: Semantic Versioning (MAJOR.MINOR.PATCH)
 Scope: Tracks the iterations we implemented together in this project.
 
 
-v0.3.1 — Multi-file polish (current)
+v0.4.0 — Multi-tool hub + accessible links
+-----------------------------------------
+• Renamed the main parser page: `index.html` → `groceryReceipts.html` (no functional changes to parsing).
+• Added new landing page `index.html` with links to:
+  – `groceryReceipts.html` (Kroger Receipt HTML → Table)
+  – `grocerySummarizer.html` (new placeholder page for upcoming summaries/analytics)
+• Improved readability on dark backgrounds:
+  – Added high-contrast link colors for default/hover/visited/active states.
+  – Added accessible `:focus-visible` outline for keyboard users.
+  – Kept “pill” links underline-free while preserving contrast.
+• Optional UX touch: added a small “Home” pill link on `groceryReceipts.html`.
+
+v0.3.1 — Multi-file polish
 ------------------------------------
 • Split the single-file app into separate files: index.html, styles.css, app.js, README.md.
 • README includes a Console snippet that copies #receipt-print-area HTML and logs the order date to the console.
