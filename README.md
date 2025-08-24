@@ -21,11 +21,11 @@ Open `index.html` in your browser.
 
 ```js
 (function(){
-const root = document.getElementById('receipt-print-area');
-if(!root){ console.warn('receipt-print-area not found'); return; }
-const text = (root.textContent||'').replace(/\s+/g,' ').trim();
-const m = text.match(/Order Date:\s*([A-Za-z]{3,9}\.?\s*\d{1,2},?\s*\d{4})/);
-const date = m ? m[1].trim() : 'Unknown';
-copy(root.innerHTML);
-console.log(`Copied receipt HTML for order dated ${date}`);
+  const root = document.getElementById('receipt-print-area');
+  if(!root){ console.warn('receipt-print-area not found'); return; }
+  const text = (root.textContent||'').replace(/\s+/g,' ').trim();
+  const m = text.match(/Order Date:\s*([A-Za-z]{3,9}\.?\s*\d{1,2},?\s*\d{4})/);
+  const date = m ? m[1].trim() : 'Unknown';
+  copy(root.innerHTML);
+  console.log(`Copied receipt HTML for order dated ${date}`);
 })();
