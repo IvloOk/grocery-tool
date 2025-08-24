@@ -12,7 +12,7 @@
   <div class="wrap">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
       <h1>Grocery Summarizer</h1>
-      <a href="./" class="pill" style="text-decoration:none">Home</a>
+      <a href="../index.html" class="pill" style="text-decoration:none">Home</a>
     </div>
     <p class="sub">Upload a CSV exported from the Receipts tool to view items. (We’ll add summaries next.)</p>
 
@@ -26,7 +26,14 @@
       <div class="status" id="status"></div>
     </div>
 
-    <div id="tableContainer" class="box" style="margin-top:12px; display:none"></div>
+<!-- dataset banner (date range, counts) -->
+<div class="box" id="datasetBanner" style="display:none; margin-top:12px"></div>
+
+<!-- summary only -->
+<div class="box" id="summaryBox" style="margin-top:12px; display:none">
+  <h2 style="margin:0 0 8px">Unique Items Summary</h2>
+  <div id="summaryContainer"></div>
+</div>
 
     <div class="footer">
       <div class="muted">Runs entirely in your browser. Same parser & table as the Receipts tool.</div>
