@@ -3,6 +3,11 @@ Kroger Receipt Parser — Changelog
 Versioning: Semantic Versioning (MAJOR.MINOR.PATCH)
 Scope: Tracks the iterations we implemented together in this project.
 
+v0.5.0 — Introduce 'Summarizer' feature
+-----------------------------------------
+• Added the Summarizer feature
+• Import CSV produced from the other tool and identify unique items purchased, total/avg cost, and frequency
+
 v0.4.2 — Reorg repo to prep for add'l features
 -----------------------------------------
 • Created folders & rearranged/renamed files for clarity and reduced clutter
