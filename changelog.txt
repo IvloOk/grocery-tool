@@ -4,6 +4,11 @@ Versioning: Semantic Versioning (MAJOR.MINOR.PATCH)
 Scope: Tracks the iterations we implemented together in this project.
 
 
+v0.4.1 — Revise JS implementation
+-----------------------------------------
+• 'shared.js' for shared functionality across pages
+• Individual named .js files for specific pages
+
 v0.4.0 — Multi-tool hub + accessible links
 -----------------------------------------
 • Renamed the main parser page: `index.html` → `groceryReceipts.html` (no functional changes to parsing).
