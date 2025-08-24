@@ -3,6 +3,9 @@ Kroger Receipt Parser — Changelog
 Versioning: Semantic Versioning (MAJOR.MINOR.PATCH)
 Scope: Tracks the iterations we implemented together in this project.
 
+v0.4.2 — Reorg repo to prep for add'l features
+-----------------------------------------
+• Created folders & rearranged/renamed files for clarity and reduced clutter
 
 v0.4.1 — Revise JS implementation
 -----------------------------------------
