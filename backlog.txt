@@ -1,0 +1,14 @@
+Summarizer status text. Since the page now imports CSV and renders a table, tweak the “Coming soon” copy so it doesn’t imply nothing works yet. 
+GitHub
+
+---
+
+Accessibility polish (super small): Add aria-live="polite" to the .status element on both pages so screen readers announce parse/import results.
+
+---
+
+Defensive guards: In summarizer.js, ensure you no-op gracefully if someone loads the page file:// and the CSV has unexpected headers (re-use the header validation already in shared utilities).
+
+---
+
+Index hub check. If index.html exists in main (it does), make sure its links still point to groceryReceipts.html and grocerySummarizer.html. (PR #5 doesn’t touch index.html.)
