@@ -1,0 +1,58 @@
+Kroger Receipt Parser — Changelog
+=================================
+Versioning: Semantic Versioning (MAJOR.MINOR.PATCH)
+Scope: Tracks the iterations we implemented together in this project.
+
+
+v0.3.1 — Multi-file polish (current)
+------------------------------------
+• Split the single-file app into separate files: index.html, styles.css, app.js, README.md.
+• README includes a Console snippet that copies #receipt-print-area HTML and logs the order date to the console.
+• Kept Import CSV / Export CSV, textarea auto-clear on Process, upsert behavior, and date-ascending sort.
+• Back-to-top floating button included.
+
+v0.3.0 — UX improvements
+-------------------------
+• Floating “Back to top” button (bottom-right) appears after scrolling and smooth-scrolls to the top.
+• Table is sorted by Date (ascending) on every update (process/import).
+• Status line now shows: “Parsed X item blocks for order dated <DATE>; Y new rows added in Z ms.”
+• Date extraction normalized to handle “Aug.” vs “Aug”.
+
+v0.2.2 — Textarea quality of life
+---------------------------------
+• After clicking Process, the textarea is cleared immediately (after reading content).
+
+v0.2.1 — Parser & CSV import hardening
+--------------------------------------
+• Fixed CSV parser to correctly handle quoted fields, embedded commas, and newlines.
+• Import CSV now validates headers and converts numeric fields; boolean parsing for Coupon Used.
+
+v0.2.0 — Import/Export rework
+-----------------------------
+• Removed JSON export.
+• Added Import from CSV (upsert) using the exact same columns the app exports.
+• Kept Export CSV.
+
+v0.1.2 — Regex/parse stability
+------------------------------
+• Fixed “Invalid regular expression: missing /” error.
+• Guarded various matches to avoid null dereferences when blocks are missing expected spans.
+
+v0.1.1 — Minor fixes
+---------------------
+• Improved UPC detection.
+• Improved quantity parsing to support weighted items (e.g., “2.31 lbs x $1.77”).
+
+v0.1.0 — MVP
+-------------
+• Single-page tool: paste Kroger order HTML, click Process to parse line items.
+• Extracts: Item, Date, Unit Price, Quantity (string), Total Price, Coupon Used, UPC.
+• Upsert logic to avoid duplicates when processing multiple orders.
+• Export to CSV.
+
+
+Notes & Compatibility
+---------------------
+• Works with Kroger order detail HTML inside #receipt-print-area; selectors tuned to item blocks (.mt-8.mb-4) and Kroger’s DOM.
+• If Kroger changes their markup, selectors in app.js may need updates.
+• Legacy single-file canvas may still contain stray JSON-export lines; these are removed in the multi-file package.

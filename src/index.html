@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kroger Receipt HTML → Table</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Kroger Receipt HTML → Table</h1>
+    <p class="sub">Paste the HTML from the Kroger order page (<span class="mono">#receipt-print-area</span> or the whole page) and click <b>Process</b>. New items will be <b>upserted</b> into the table below.</p>
+
+    <div class="grid">
+      <div class="box">
+        <label for="htmlInput" class="muted">Receipt HTML</label>
+        <textarea id="htmlInput" placeholder="Paste receipt HTML here…"></textarea>
+        <div class="controls">
+          <button class="primary" id="btnProcess">Process</button>
+          <button id="btnExportCSV">Export CSV</button>
+          <button id="btnImportCSV">Import CSV</button><input type="file" id="fileCSV" accept=".csv,text/csv" style="display:none" />
+          <button class="danger" id="btnClear">Clear Table</button>
+        </div>
+        <div class="status" id="status"></div>
+      </div>
+
+      <div class="box sticky-tools">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <div>
+            <div style="font-weight:600">Quick help</div>
+            <div class="muted" style="font-size:12px">How to get the HTML</div>
+          </div>
+          <div class="pill">Optional</div>
+        </div>
+        <ol style="margin:0 0 10px 16px; padding:0">
+          <li>Open your order page on kroger.com</li>
+          <li>Open DevTools Console (F12) and run:<br>
+            <code class="mono">(function(){ const r=document.getElementById('receipt-print-area'); if(!r){console.warn('receipt-print-area not found'); return;} const t=(r.textContent||'').replace(/\s+/g,' ').trim(); const m=t.match(/Order Date:\\s*([A-Za-z]{3,9}\\.?\\s*\\d{1,2},?\\s*\\d{4})/); const date=m?m[1].trim():'Unknown'; copy(r.innerHTML); console.log('Copied receipt HTML for order dated '+date); })();</code>
+          </li>
+          <li>Paste here and click <b>Process</b></li>
+        </ol>
+        <div class="muted" style="font-size:12px">This parser is tuned to Kroger's structure (e.g. item blocks with <code class="mono">.mt-8.mb-4</code>). It handles normal counts and weighted items (lbs), coupons, and UPCs.</div>
+      </div>
+    </div>
+
+    <div id="tableContainer" class="box" style="margin-top:12px; display:none"></div>
+
+    <div class="footer">
+      <div class="muted">Built for quick personal data wrangling — runs entirely in your browser.</div>
+      <div class="muted" id="rowCount">0 items</div>
+    </div>
+  </div>
+
+  <button id="btnTop" class="backTop" title="Back to top">↑ Top</button>
+</body>
+</html>
